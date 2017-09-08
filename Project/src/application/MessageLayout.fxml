@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="476.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="33.0" layoutY="24.0" style="-fx-font-size: 14px;" text="密聊" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+      <ImageView fx:id="shutdown" layoutX="446.0" onMouseEntered="#shutdown_onMouseEntered">
+         <image>
+            <Image url="@../images/shutdown.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minimize" layoutX="416.0" onMouseEntered="#minimize_onMouseEntered">
+         <image>
+            <Image url="@../images/minimize.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shutdownShow" layoutX="446.0" onMouseExited="#shutdown_onMouseExited" onMousePressed="#shutdown_onMousePressed">
+         <image>
+            <Image url="@../images/shutdownShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minimizeShow" layoutX="416.0" onMouseExited="#minimize_onMouseExited" onMousePressed="#minimize_onMousePressed">
+         <image>
+            <Image url="@../images/minimizeShow.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="29.0" layoutY="44.0" prefHeight="173.0" prefWidth="423.0" text="Label" />
+      <Button layoutX="381.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #0099FF; -fx-text-fill: white; -fx-font-size: 14px;" text="确认" />
+   </children>
+</AnchorPane>
