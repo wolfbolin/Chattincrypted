@@ -80,7 +80,7 @@ public class RecentMessage {
 
 		txtName = new Text("(" + username + ")");
 		txtRemark = new Text(nickname);
-		if (msg.length() > 15) {
+		if (msg.length() > 18) {
 			txtSign.setText(msg.substring(0, 18) + "...");
 		} else {
 			txtSign.setText(msg);

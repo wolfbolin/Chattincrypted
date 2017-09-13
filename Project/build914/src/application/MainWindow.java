@@ -106,9 +106,9 @@ public class MainWindow {
 
 	@FXML
 	private ImageView messageicon;
-	
+
 	@FXML
-    private ImageView ban;
+	private ImageView ban;
 
 	@FXML
 	private Label friendname;
@@ -189,7 +189,6 @@ public class MainWindow {
 
 	@FXML
 	void messageShow_onMousePressed(MouseEvent event) {
-		messageicon.setVisible(true);
 		/////////////////////////////////////////
 		reAddRecenet();
 	}
@@ -204,7 +203,7 @@ public class MainWindow {
 
 	@FXML
 	void sendFile_onMouseClicked(MouseEvent event) {
-		String[] fileInfo = Main.selectFile(false,"","");
+		String[] fileInfo = Main.selectFile(false, "", "");
 		String time = String.valueOf(new Date().getTime());
 		addMessage(Main.user.getUsername(), "您将发送文件 \"" + fileInfo[1] + "\"", time, true);
 		Main.messageManner.clear();
@@ -234,9 +233,9 @@ public class MainWindow {
 	void sendVoice_onMouesClicked(MouseEvent event) {
 
 	}
-	
+
 	@FXML
-    void ban_onMouseClicked(MouseEvent event) {
+	void ban_onMouseClicked(MouseEvent event) {
 		Alert _alert = new Alert(Alert.AlertType.CONFIRMATION, "朋友，三思啊！", new ButtonType("取消", ButtonBar.ButtonData.NO),
 				new ButtonType("确定", ButtonBar.ButtonData.YES));
 		_alert.setTitle("删除");
@@ -266,7 +265,7 @@ public class MainWindow {
 		} else {
 			return;
 		}
-    }
+	}
 
 	@FXML
 	void friendinfo_onMousePressed(MouseEvent event) {
@@ -428,9 +427,9 @@ public class MainWindow {
 					infoWindow.nickName = Main.messageManner.nickname;
 					infoWindow.Mail = Main.messageManner.mail;
 					infoWindow.signInfo = Main.messageManner.signature;
-					if(Main.messageManner.avatar) {
-						infoWindow.avatar_date = DefaultDefine.iconPath+infoWindow.userName+".jpg";
-					}else {
+					if (Main.messageManner.avatar) {
+						infoWindow.avatar_date = DefaultDefine.iconPath + infoWindow.userName + ".jpg";
+					} else {
 						infoWindow.avatar_date = null;
 					}
 					infoWindow.editable = false;
@@ -490,17 +489,29 @@ public class MainWindow {
 	public void reAddRecenet() {
 		Collections.sort(Main.rcentMessage.msgList);
 		VBox viewList = new VBox();
-		for (int i = 0; i != Main.friendlist.size(); i++) {
-			String username = Main.friendlist.get(i).getUsername();
-			String nickname = Main.friendlist.get(i).getNickname();
-			HBox node = Main.rcentMessage.getHBox(username, nickname);
-			if (node == null) {
-				continue;
+		boolean[] dic = new boolean[Main.friendlist.size()];
+		for (int i = Main.rcentMessage.msgList.size() - 1; i >= 0; i--) {
+			String msgSender = Main.rcentMessage.msgList.get(i).msgSender;
+			String msgReceicer = Main.rcentMessage.msgList.get(i).msgReceicer;
+			String chatuser = msgSender.equals(Main.user.getUsername()) ? msgReceicer : msgSender;
+			for (int j = 0; j != Main.friendlist.size(); j++) {
+				String username = Main.friendlist.get(j).getUsername();
+				if (chatuser.equals(username)) {
+					if(dic[j]) {
+						break;
+					}
+					dic[j] = true;
+					String nickname = Main.friendlist.get(j).getNickname();
+					HBox node = Main.rcentMessage.getHBox(username, nickname);
+					if (node == null) {
+						continue;
+					}
+					node.setOnMouseClicked(e -> {
+						openWindow(e, username, nickname, friendname, title, messageArea, tools, inputArea);
+					});
+					viewList.getChildren().add(node);
+				}
 			}
-			node.setOnMouseClicked(e -> {
-				openWindow(e, username, nickname, friendname, title, messageArea, tools, inputArea);
-			});
-			viewList.getChildren().add(node);
 		}
 		friendList.setContent(viewList);
 	}
