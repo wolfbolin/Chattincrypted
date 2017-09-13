@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MessageWindow">
+   <children>
+      <Label layoutX="33.0" layoutY="24.0" style="-fx-font-size: 14px;" text="系统提示" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+      <ImageView fx:id="minimizeShow" layoutX="440.0" onMouseExited="#minimize_onMouseExited" onMousePressed="#minimize_onMousePressed">
+         <image>
+            <Image url="@../images/minimizeShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shutdownShow" layoutX="470.0" onMouseExited="#shutdown_onMouseExited" onMousePressed="#shutdown_onMousePressed">
+         <image>
+            <Image url="@../images/shutdownShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minimize" layoutX="440.0" onMouseEntered="#minimize_onMouseEntered">
+         <image>
+            <Image url="@../images/minimize.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shutdown" layoutX="470.0" onMouseEntered="#shutdown_onMouseEntered">
+         <image>
+            <Image url="@../images/shutdown.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="surebutton" layoutX="400.0" layoutY="243.0" mnemonicParsing="false" onMouseClicked="#sure_onMouseClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #0099FF; -fx-text-fill: white; -fx-font-size: 14px;" text="确认" />
+      <Text fx:id="messageText" strokeType="OUTSIDE" strokeWidth="0.0" text="系统错误" wrappingWidth="400.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

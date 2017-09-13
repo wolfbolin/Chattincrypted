@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginWindow">
+   <children>
+      <Label layoutX="23.0" layoutY="14.0" style="-fx-font-size: 14px;" text="密聊" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="nickname" alignment="CENTER" layoutX="100.0" layoutY="268.0" prefWidth="200.0" style="-fx-font-size: 16px;" text="WOLF" textAlignment="CENTER" />
+      <HBox layoutX="88.0" layoutY="310.0" prefHeight="25.0" prefWidth="225.0">
+         <children>
+            <Label alignment="CENTER" text="账    户">
+               <HBox.margin>
+                  <Insets bottom="5.0" right="15.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="username">
+               <HBox.margin>
+                  <Insets bottom="1.0" top="1.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="88.0" layoutY="360.0" prefHeight="25.0" prefWidth="225.0">
+         <children>
+            <Label alignment="CENTER" text="密    码">
+               <HBox.margin>
+                  <Insets bottom="5.0" right="15.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <PasswordField fx:id="password" />
+         </children>
+      </HBox>
+      <Button layoutX="105.0" layoutY="465.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #0099FF; -fx-text-fill: white; -fx-font-size: 14px;" text="登       录" />
+      <CheckBox fx:id="remember" layoutX="113.0" layoutY="410.0" mnemonicParsing="false" text="保存密码" />
+      <CheckBox fx:id="autologin" layoutX="217.0" layoutY="410.0" mnemonicParsing="false" text="自动登录" />
+   </children>
+</AnchorPane>

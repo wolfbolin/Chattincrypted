@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="500.0" minWidth="700.0" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindow">
+   <children>
+      <Label layoutX="33.0" layoutY="24.0" style="-fx-font-size: 14px;" text="密聊" textFill="#22b2ec" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="5.0" />
+      <ImageView fx:id="minimizeShow" layoutX="1040.0" onMouseExited="#minimize_onMouseExited" onMousePressed="#minimize_onMousePressed">
+         <image>
+            <Image url="@../images/minimizeShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shutdownShow" layoutX="1070.0" onMouseExited="#shutdown_onMouseExited" onMousePressed="#shutdown_onMousePressed">
+         <image>
+            <Image url="@../images/shutdownShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shutdown" layoutX="1070.0" onMouseEntered="#shutdown_onMouseEntered">
+         <image>
+            <Image url="@../images/shutdown.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minimize" layoutX="1040.0" onMouseEntered="#minimize_onMouseEntered">
+         <image>
+            <Image url="@../images/minimize.png" />
+         </image>
+      </ImageView>
+      <Label layoutY="780.0" prefHeight="20.0" prefWidth="60.0" style="-fx-background-radius: 10px; -fx-background-color: #15ADEB;" />
+      <Label layoutX="30.0" layoutY="780.0" prefHeight="20.0" prefWidth="30.0" style="-fx-background-color: #15ADEB;" />
+      <Label layoutY="30.0" prefHeight="760.0" prefWidth="60.0" style="-fx-background-color: #15ADEB;" />
+      <ImageView fx:id="avatar" fitHeight="36.0" fitWidth="36.0" layoutX="12.0" layoutY="60.0" onMousePressed="#avatar_onMousePressed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/default.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="friendShowicon" fitHeight="36.0" fitWidth="36.0" layoutX="12.0" layoutY="120.0" onMousePressed="#friendShow_onMousePressed">
+         <image>
+            <Image url="@../images/friendShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="friendicon" fitHeight="36.0" fitWidth="36.0" layoutX="12.0" layoutY="120.0" onMousePressed="#friend_onMousePressed" visible="false">
+         <image>
+            <Image url="@../images/friend.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="messageShowicon" fitHeight="30.0" fitWidth="36.0" layoutX="12.0" layoutY="180.0" onMousePressed="#messageShow_onMousePressed">
+         <image>
+            <Image url="@../images/messageShow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="messageicon" fitHeight="30.0" fitWidth="36.0" layoutX="12.0" layoutY="180.0" onMousePressed="#message_onMousePressed">
+         <image>
+            <Image url="@../images/message.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="inputArea" layoutX="300.0" layoutY="630.0" onKeyReleased="#inputArea_onKeyReleased" prefHeight="170.0" prefWidth="800.0" />
+      <HBox layoutX="60.0" layoutY="30.0" prefHeight="40.0" prefWidth="240.0">
+         <children>
+            <TextField fx:id="search" focusTraversable="false" onKeyTyped="#search_onKeyTyped" prefHeight="30.0" prefWidth="220.0" promptText="搜   索" style="-fx-border-color: #15ADEB; -fx-border-width: 1px;">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="friendList" hbarPolicy="NEVER" hmax="1000.0" layoutX="60.0" layoutY="70.0" maxHeight="730.0" maxWidth="240.0" minHeight="730.0" minWidth="240.0" prefHeight="730.0" prefWidth="240.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="730.0" prefWidth="240.0" />
+        </content>
+      </ScrollPane>
+      <TextArea fx:id="messageArea" layoutX="300.0" layoutY="70.0" prefHeight="530.0" prefWidth="800.0" />
+      <HBox fx:id="title" layoutX="300.0" layoutY="30.0" prefHeight="40.0" prefWidth="800.0">
+         <children>
+            <ImageView fx:id="backbutton" onMouseClicked="#backbutton_onMouseClicked">
+               <image>
+                  <Image url="@../images/backbutton.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="friendname" maxHeight="25.0" maxWidth="200.0" minHeight="30.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" text="联系人">
+               <HBox.margin>
+                  <Insets left="25.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Microsoft YaHei UI Light" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="ban" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#ban_onMouseClicked">
+               <image>
+                  <Image url="@../images/ban.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="350.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="friendinfo" fitHeight="30.0" fitWidth="30.0" onMousePressed="#friendinfo_onMousePressed">
+               <image>
+                  <Image url="@../images/friendinfo.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="deletefriend" fitHeight="30.0" fitWidth="30.0" onMousePressed="#deletefriend_onMousePressed">
+               <image>
+                  <Image url="@../images/deletebutton.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="tools" layoutX="300.0" layoutY="600.0" prefHeight="30.0" prefWidth="800.0">
+         <children>
+            <ImageView fx:id="sendFile" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#sendFile_onMouseClicked">
+               <image>
+                  <Image url="@../images/file.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="sendPic" fitHeight="25.0" fitWidth="30.0" onContextMenuRequested="#sendPic_onMouedClicked">
+               <image>
+                  <Image url="@../images/picture.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="30.0" top="2.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="sendVoice" fitHeight="30.0" fitWidth="35.0" onMouseClicked="#sendVoice_onMouesClicked">
+               <image>
+                  <Image url="@../images/music.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </ImageView>
+         </children></HBox>
+   </children>
+</AnchorPane>
